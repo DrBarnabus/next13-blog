@@ -1,6 +1,7 @@
+import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { allPosts } from 'contentlayer/generated';
+import { MdxContent } from '~/app/components/markdown/mdx-content';
 
 type Props = {
   params: {
@@ -34,7 +35,7 @@ export default function Page({ params }: Props) {
         </time>
       </div>
 
-      <div dangerouslySetInnerHTML={{ __html: post.body.html }}></div>
+      <MdxContent code={post.body.code} />
     </article>
   );
 }
