@@ -10,3 +10,12 @@ mattis ex, nec condimentum justo porta in. Aliquam ac elit sapien. Ut tristique 
 Pellentesque ac ante bibendum, imperdiet ipsum eget, ornare arcu. Nam vestibulum semper justo non posuere. Nam et sapien in est convallis
 consectetur. Sed consequat facilisis nisi, id hendrerit justo pretium ac. In vitae metus scelerisque, venenatis massa id, vehicula ipsum.
 Proin vulputate tortor neque, blandit lobortis velit placerat non. Pellentesque vel suscipit enim, in porttitor lacus.
+
+```js title="tailwind.config.js" showLineNumbers {2-3} /require/
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {},
+  plugins: [require('@tailwindcss/typography')],
+};
+```

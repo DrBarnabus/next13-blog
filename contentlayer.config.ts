@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import rehypePrettyCode, { type Options as PrettyCodeOptions } from 'rehype-pretty-code';
 import remarkGfm from 'remark-gfm';
 
 export const Post = defineDocumentType(() => ({
@@ -32,6 +33,18 @@ export default makeSource({
     remarkPlugins: [
       /** Add support for GitHub Flavoured Markdown */
       remarkGfm,
+    ],
+    rehypePlugins: [
+      [
+        rehypePrettyCode,
+        {
+          theme: 'github-light',
+          grid: false,
+          onVisitHighlightedChars(node) {
+            node.properties.className = ['word'];
+          },
+        } satisfies Partial<PrettyCodeOptions>,
+      ],
     ],
   },
 });
